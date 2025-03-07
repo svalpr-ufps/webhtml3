@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página con Grid Layout y Efectos</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Grid Container */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    /* Grid Items */
+    .item {
+      background-color: #6200ea;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Efectos al pasar el mouse */
+    .item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      filter: brightness(1.2);
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .item {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    /* Efectos avanzados */
+    .item1 {
+      clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    }
+
+    .item2 {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .item3 {
+      filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+    }
+
+    .item4 {
+      background: linear-gradient(45deg, #ff6f61, #ffcc00);
+    }
+
+    .item5 {
+      clip-path: circle(50% at 50% 50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+  </div>
+
+  <script>
+    // Agregar interacción con JavaScript
+    const items = document.querySelectorAll('.item');
+
+    items.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        alert(`Hiciste clic en el item ${index + 1}`);
+      });
+    });
+  </script>
+</body>
+</html>
